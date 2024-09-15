@@ -41,35 +41,35 @@ const components: JSXMapSerializer = {
     <li className="mt-2 font-bold space-y-4 glow">{children}</li>
   ),
 };
-const AboutNyxNova = () => {
-  const features = [
-    { name: "Precision Detection", description: "Utilizes state-of-the-art technology to detect terrain anomalies, including craters, boulders, and other obstacles on the lunar surface." },
-    { name: "Smart Navigation", description: "With advanced machine learning algorithms, charts the most optimized path from point A to point B, ensuring safe and efficient navigation." },
-    { name: "Obstacle Avoidance", description: "Intelligently avoids dangerous lunar terrain, enhancing safety and reliability for lunar missions." },
-    { name: "Optimized Route Planning", description: "Algorithms minimize traversal time and energy usage by finding the most efficient path through the Moon's challenging landscape." },
-    { name: "Future-Ready Exploration", description: "Built for lunar exploration and beyond, supports the next wave of space missions with cutting-edge navigation technology." }
-  ];
+// const AboutNyxNova = () => {
+//   const features = [
+//     { name: "Precision Detection", description: "Utilizes state-of-the-art technology to detect terrain anomalies, including craters, boulders, and other obstacles on the lunar surface." },
+//     { name: "Smart Navigation", description: "With advanced machine learning algorithms, charts the most optimized path from point A to point B, ensuring safe and efficient navigation." },
+//     { name: "Obstacle Avoidance", description: "Intelligently avoids dangerous lunar terrain, enhancing safety and reliability for lunar missions." },
+//     { name: "Optimized Route Planning", description: "Algorithms minimize traversal time and energy usage by finding the most efficient path through the Moon's challenging landscape." },
+//     { name: "Future-Ready Exploration", description: "Built for lunar exploration and beyond, supports the next wave of space missions with cutting-edge navigation technology." }
+//   ];
 
-  return (
-    <div className="mt-80 font-body bg-gray-900 text-gray-100 py-20">
-      <div className="grid grid-cols-1 justify-items-center w-full pt-16"> {/* Added pt-16 for top padding */}
-      <h2 className="text-4xl px-6 font-bold font-display text-center mb-6 md:mb-16 text-yellow-400 max-w-3xl">
-      About </h2>
-    </div>
-      <div className="max-w-4xl mx-auto">
-        {features.map((feature, index) => (
-          <div key={index} className="mb-20">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-2 flex items-center">
-              <ChevronRight className="mr-2 text-yellow-500" />
-              {feature.name}
-            </h3>
-            <p className="text-yellow-200 hover:text-slate-300 pl-6">{feature.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="mt-80 font-body bg-gray-900 text-gray-100 py-20">
+//       <div className="grid grid-cols-1 justify-items-center w-full pt-16"> {/* Added pt-16 for top padding */}
+//       <h2 className="text-4xl px-6 font-bold font-display text-center mb-6 md:mb-16 text-yellow-400 max-w-3xl">
+//       About </h2>
+//     </div>
+//       <div className="max-w-4xl mx-auto">
+//         {features.map((feature, index) => (
+//           <div key={index} className="mb-20">
+//             <h3 className="text-2xl font-bold text-yellow-400 mb-2 flex items-center">
+//               <ChevronRight className="mr-2 text-yellow-500" />
+//               {feature.name}
+//             </h3>
+//             <p className="text-yellow-200 hover:text-slate-300 pl-6">{feature.description}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
@@ -104,7 +104,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 {slice.primary.button_text}
               </Button>
             </div>
-            <AboutNyxNova />
+            {/* <AboutNyxNova /> */}
           </div>
         </Bounded>
       )}
