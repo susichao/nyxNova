@@ -5,6 +5,8 @@ import logoimg from "./logo.png";
 import warning from "./logo.png";
 import { useState } from "react";
 import { StaticImageData } from "next/image";
+import { auth } from "../Firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 interface LoginProps {
   // Add any props you want to pass to the Login component
@@ -18,6 +20,8 @@ const Login: React.FC<LoginProps> = () => {
 
   const [error, seterror] = useState(false);
   const [ErrorMsg, setErrorMsg] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
 
   let logoImg: StaticImageData = logoimg;
   let warningImg: StaticImageData = warning;
@@ -27,9 +31,27 @@ const Login: React.FC<LoginProps> = () => {
     seterror(false);
 
     if (NewUser) {
-      // create user
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((UserDetails) => {
+            console.log(UserDetails);
+          localStorage.setItem("username", Username);
+        })
+        .catch((error) => {
+          seterror(true);
+          const errorMessage = error.message;
+          setErrorMsg(errorMessage);
+        });
     } else {
-      // sign in user
+      signInWithEmailAndPassword(auth, email, password)
+        .then((UserDetails) => {
+          // const user = User
+          console.log(UserDetails);
+        })
+        .catch((error) => {
+          seterror(true);
+          const errorMessage = error.message;
+          setErrorMsg(errorMessage);
+        });
     }
   };
 
@@ -50,14 +72,14 @@ const Login: React.FC<LoginProps> = () => {
 
       <form onSubmit={submit}>
         {NewUser && (
-          <div className="username">
+          <div className="username" >
             <input
               onChange={(e) => setUsername(e.target.value)}
               type="username"
               id="username"
               required
             />
-            <label htmlFor="username" >username</label>
+            <label htmlFor="username">username</label>
           </div>
         )}
 
@@ -68,7 +90,7 @@ const Login: React.FC<LoginProps> = () => {
             id="email"
             required
           />
-          <label htmlFor="email" style={{ marginTop: 60 }}>email</label>
+          <label htmlFor="email"style={{ marginTop: 60 }}>email</label>
         </div>
 
         <div className="password">
@@ -78,12 +100,22 @@ const Login: React.FC<LoginProps> = () => {
             id="password"
             required
           />
-          <label htmlFor="password" style={{ marginTop: 120 }}>password</label>
+          <label htmlFor="password"style={{ marginTop: 120 }}>password</label>
         </div>
 
-        {error && <img src={warningImg.src} alt="" className="status" />}
+        {error && (
+          <div>
+            <img src={warningImg.src} alt="" className="status" />
+            <span className="error">Process Failed</span>
+            <span className="error">{ErrorMsg}</span>
+          </div>
+        )}
 
-        {error && <span className="error">Process Failed</span>}
+        {success && (
+          <div>
+            <span className="success">{successMsg}</span>
+          </div>
+        )}
 
         <button type="submit">{NewUser ? "Sign Up" : "Log In"}</button>
 
