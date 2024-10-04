@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = HeroSlice;
+type HomeDocumentDataSlicesSlice = HerocardSlice | HeroSlice;
 
 /**
  * Content for home documents
@@ -348,6 +348,71 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Herocard → Default → Primary*
+ */
+export interface HerocardSliceDefaultPrimary {
+  /**
+   * image field in *Herocard → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: herocard.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text heading field in *Herocard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: herocard.default.primary.text_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_heading: prismic.KeyTextField;
+
+  /**
+   * text field in *Herocard → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: herocard.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Herocard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HerocardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HerocardSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Herocard*
+ */
+type HerocardSliceVariation = HerocardSliceDefault;
+
+/**
+ * Herocard Shared Slice
+ *
+ * - **API ID**: `herocard`
+ * - **Description**: Herocard
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HerocardSlice = prismic.SharedSlice<
+  "herocard",
+  HerocardSliceVariation
+>;
+
+/**
  * Primary content in *LandingSite → Default → Primary*
  */
 export interface LandingSiteSliceDefaultPrimary {
@@ -561,6 +626,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HerocardSlice,
+      HerocardSliceDefaultPrimary,
+      HerocardSliceVariation,
+      HerocardSliceDefault,
       LandingSiteSlice,
       LandingSiteSliceDefaultPrimary,
       LandingSiteSliceVariation,
