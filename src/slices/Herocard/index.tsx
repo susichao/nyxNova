@@ -85,7 +85,7 @@ const HeroCard: React.FC = () => {
               >
                 <IconWrapper>{data.icon}</IconWrapper>
                 <Title>{data.title}</Title>
-                <Content>{data.content}</Content>
+        
                 <Description>{data.description}</Description>
               </CardContainer>
             ))}
