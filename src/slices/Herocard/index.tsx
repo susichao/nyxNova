@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import Bounded from '@/components/Bounded';
 
+// Styled components without twin.macro
 const CardContainer = styled(motion.div)`
   width: 300px;
   height: 400px;
@@ -16,12 +17,11 @@ const CardContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: rgba(75, 85, 99, 0.5); /* More transparent background with 50% opacity */
+  background: rgba(75, 85, 99, 0.5);
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.1);
-  color: #fbbf24; /* Yellow text */
+  color: #fbbf24;
   transition: transform 0.3s ease-in-out;
-  font-family: 'font-display'; /* Font style */
-  backdrop-filter: blur(8px); /* Background blur effect */
+  backdrop-filter: blur(8px);
   &:hover {
     transform: scale(1.05) rotateY(10deg);
   }
@@ -36,6 +36,7 @@ const Title = styled.h3`
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  font-family: 'font-display'; /* Manually set font-display */
 `;
 
 const Content = styled.p`
@@ -46,6 +47,7 @@ const Content = styled.p`
 const Description = styled.p`
   font-size: 1.25rem;
   color: #d1d5db;
+  font-family: 'font-body'; /* Manually set font-body */
 `;
 
 const ServiceData = [
