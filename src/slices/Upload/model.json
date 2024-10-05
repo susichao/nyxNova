@@ -15,16 +15,33 @@
         "image": {
           "type": "Image",
           "config": {
-            "label": "image",
+            "label": "gasGiantImage",
             "constraint": {},
             "thumbnails": []
           }
         },
-        "numbers": {
-          "type": "Number",
+        "neptuneimage": {
+          "type": "Image",
           "config": {
-            "label": "numbers",
-            "placeholder": ""
+            "label": "neptuneImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "superearthimage": {
+          "type": "Image",
+          "config": {
+            "label": "superEarthImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "terrestrialimage": {
+          "type": "Image",
+          "config": {
+            "label": "terrestrialImage",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

@@ -1,57 +1,93 @@
-import React from "react";
-import { FaAtom, FaReact, FaMapMarkerAlt } from "react-icons/fa";
-import Bounded from "@/components/Bounded";
+"use client";
+
+import React from 'react';
+import { FaAtom, FaReact, FaMapMarkerAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import styled from '@emotion/styled';
+import Bounded from '@/components/Bounded';
+
+const CardContainer = styled(motion.div)`
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(75, 85, 99, 0.5); /* More transparent background with 50% opacity */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  color: #fbbf24; /* Yellow text */
+  transition: transform 0.3s ease-in-out;
+  font-family: 'font-display'; /* Font style */
+  backdrop-filter: blur(8px); /* Background blur effect */
+  &:hover {
+    transform: scale(1.05) rotateY(10deg);
+  }
+`;
+
+const IconWrapper = styled.div`
+  font-size: 5rem;
+  margin-bottom: 1rem;
+`;
+
+const Title = styled.h3`
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+`;
+
+const Content = styled.p`
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+`;
+
+const Description = styled.p`
+  font-size: 1.25rem;
+  color: #d1d5db;
+`;
 
 const ServiceData = [
   {
-    title: "HST",
+    title: "Universal Rover Navigation",
     content: "300-1500km",
-    description:
-      "Used for astronomical observations, capturing stunning images of the universe.",
-    icon: <FaAtom className="text-5xl" />,
+    description: "Plot safe paths across alien terrains, adapting to various planetary conditions",
+    icon: <FaMapMarkerAlt />,
   },
   {
-    title: "ISS",
+    title: "3D Exoplanet Explorer",
     content: "500-1500km",
-    description:
-      ", it's a habitable artificial satellite orbiting Earth and serves as a space environment research laboratory",
-    icon: <FaReact className="text-5xl" />,
+    description: "Immerse yourself in interactive 3D models of known exoplanets.",
+    icon: <FaReact />,
   },
   {
-    title: "GPS",
+    title: "AI-Powered Surface Analysis",
     content: "300-1500km",
-    description:
-      "Part of the Global Positioning System (GPS) used for navigation.",
-    icon: <FaMapMarkerAlt className="text-5xl" />,
+    description: "Detect craters, boulders, and unique features on diverse exoplanets",
+    icon: <FaAtom />,
   },
 ];
 
-const HeroCard = () => {
+const HeroCard: React.FC = () => {
   return (
-    <Bounded className=" py-20">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {ServiceData.map((data, index) => (
-            <div
-              key={index}
-              data-aos="fade-up"
-              data-aos-delay={200 + index * 100}
-              className="bg-blue-800 rounded-xl p-8 flex flex-col items-center"
-            >
-              <div className="text-yellow-400 mb-6 text-center">{data.icon}
-              <div className="absolute inset-0 bg-yellow-400 opacity-0 rounded-full filter blur-xl group-hover:opacity-50 transition-opacity duration-300"></div>
-              </div>
-              <h3 className="text-5xl font-bold font-display text-center mb-2">
-                {data.title}
-              </h3>
-              <p className="text-2xl text-yellow-200 text-center font-body mb-4"> {/* Changed text color to yellow-400 */}
-                {data.content}
-              </p>
-              <p className="text-xl text-gray-300 text-center px-3 font-body">
-                {data.description}
-              </p>
-            </div>
-          ))}
+    <Bounded>
+      <div className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center">
+            {ServiceData.map((data, index) => (
+              <CardContainer
+                key={index}
+                whileHover={{ scale: 1.1, rotateY: 15 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <IconWrapper>{data.icon}</IconWrapper>
+                <Title>{data.title}</Title>
+                <Content>{data.content}</Content>
+                <Description>{data.description}</Description>
+              </CardContainer>
+            ))}
+          </div>
         </div>
       </div>
     </Bounded>

@@ -7,39 +7,28 @@ import {
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
-import React from 'react';
+import React from "react";
+import { PrismicNextImage } from "@prismicio/next";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <Heading
-      as="h2"
-      size="xl"
-      className="mt-6 md:mt-10 glow"
-    >
+    <Heading as="h2" size="xl" className="mt-6 md:mt-10 glow">
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p 
-      className="mt-6 md:mt-10 text-2xl md:text-2xl font-body gap-8 max-w-md space-y-4 neon-text"
-    >
+    <p className="mt-6 md:mt-10 text-2xl md:text-2xl font-body gap-8 max-w-md space-y-4 neon-text">
       {children}
     </p>
   ),
-  // Add bold and list support
-  strong: ({ children }) => (
-    <strong className="font-bold glow">{children}</strong>
-  ),
+  strong: ({ children }) => <strong className="font-bold glow">{children}</strong>,
   list: ({ children }) => (
-    <ul className="list-disc list-inside mt-3 md:mt-10 text-2xl text-yellow-300 space-y-4 neon-list">
+    <ul className="list-disc list-inside mt-3 md:mt-10 text-2xl text-yellow-500 space-y-4 neon-list">
       {children}
     </ul>
   ),
-  listItem: ({ children }) => (
-    <li className="mt-2 font-bold space-y-4 glow">{children}</li>
-  ),
+  listItem: ({ children }) => <li className="mt-2 font-bold space-y-4 glow">{children}</li>,
 };
-
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
@@ -47,40 +36,46 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <Bounded
-          data-slice-type={slice.slice_type}
-          data-slice-variation={slice.variation}
+        <div
+          className="w-full h-screen flex items-center justify-center text-center relative"
+          style={{
+            backgroundImage: `url(${slice.primary.image.url})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
         >
-          <div className="grid min-h-screen grid-cols-1 place-items-center text-center py-20">
-            <PrismicRichText
-              field={slice.primary.heading}
-              components={components}
-            />
-            <div className="mb-6 md:mb-16 text-4xl font-body font-bold text-yellow-200 hover:text-slate-300 neon-text"> {/* Apply font-body */}
-              <PrismicRichText
-                field={slice.primary.body}
-                components={components}
-              />
+
+          <Bounded
+            data-slice-type={slice.slice_type}
+            data-slice-variation={slice.variation}
+            className="relative z-10"
+          >
+            <div className="grid min-h-screen grid-cols-1 place-items-center text-center">
+              {/* Heading */}
+              <PrismicRichText field={slice.primary.heading} components={components} />
+
+              {/* Body Text */}
+              <div className="mb-6 md:mb-16 text-4xl font-body font-bold text-yellow-200 hover:text-slate-300 neon-text">
+                <PrismicRichText field={slice.primary.body} components={components} />
+              </div>
+
+              {/* Button Section */}
+              <div className=" px-20 py-6 justify-center">
+                <Button
+                  field={slice.primary.button_link}
+                  className="px-20 py-4 text-5xl font-body font-bold shadow-md hover:shadow-lg active:scale-90 glow" // Adjusted the padding for a bigger button
+                >
+                  {slice.primary.button_text}
+                </Button>
+              </div>
             </div>
-            <div className="w-full py-30 flex justify-center mt-50 mb-50 mb-6 md:mb-16"> {/* Adjust margin top to create space */}
-              <Button
-                field={slice.primary.button_link}
-                className="px-6 text-4xl font-body font-bold shadow-md hover:shadow-lg active:scale-90 glow"  // Ensure font-body for button text
-              >
-                {slice.primary.button_text}
-              </Button>
-              <div className="video-background">
-          <video autoPlay muted loop className="background-video">
-            <source src="wave.mp4" type="video/gif" />
-            Your browser does not support the video tag.
-          </video>
+          </Bounded>
         </div>
-            </div>
-          </div>
-        </Bounded>
       )}
     </>
   );
 };
+
 
 export default Hero;

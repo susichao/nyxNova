@@ -53,7 +53,7 @@ export default function RootLayout({
         </div>
 
         {/* Content */}
-        <div className="content font-protestGuerrilla text-slate-200 ">
+        <div className="content font-protestGuerrilla text-slate-300 ">
           <Header />
           <div className="content font-handjet">
             {children}

@@ -13,7 +13,7 @@ const config: Config = {
         },
         fontFamily:{
           body: ["var(--font-robo_mono)"],
-          display: ["var(--font-protestGuerrilla)"]
+          display: [ "MyCustomFont"]
         }
     },
   },

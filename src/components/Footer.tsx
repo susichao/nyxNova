@@ -62,11 +62,11 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3 mt-3">
                   <MdMail />
-                  <p>srijadutta0420@gmail.com</p>
+                  <p>nyxnova2024@gmail.com</p>
                 </div>
                 <div className="flex items-center gap-3 mt-3">
                   <MdCall />
-                  <p>+91 8583959989</p>
+                  <p>+91 9000300045</p>
                 </div>
               </div>
             </div>

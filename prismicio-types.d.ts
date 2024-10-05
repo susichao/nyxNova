@@ -554,7 +554,7 @@ export type SignUpSlice = prismic.SharedSlice<"sign_up", SignUpSliceVariation>;
  */
 export interface UploadSliceDefaultPrimary {
   /**
-   * image field in *Upload → Default → Primary*
+   * gasGiantImage field in *Upload → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -564,14 +564,34 @@ export interface UploadSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * numbers field in *Upload → Default → Primary*
+   * neptuneImage field in *Upload → Default → Primary*
    *
-   * - **Field Type**: Number
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: upload.default.primary.numbers
-   * - **Documentation**: https://prismic.io/docs/field#number
+   * - **API ID Path**: upload.default.primary.neptuneimage
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  numbers: prismic.NumberField;
+  neptuneimage: prismic.ImageField<never>;
+
+  /**
+   * superEarthImage field in *Upload → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: upload.default.primary.superearthimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  superearthimage: prismic.ImageField<never>;
+
+  /**
+   * terrestrialImage field in *Upload → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: upload.default.primary.terrestrialimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  terrestrialimage: prismic.ImageField<never>;
 }
 
 /**
