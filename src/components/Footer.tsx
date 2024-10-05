@@ -44,10 +44,10 @@ const Footer = () => {
                   <Link href="https://nyxnova-simulator.vercel.app/">Home</Link>
                 </li>
                 <li className="cursor-pointer hover:text-blue-400">
-                  <Link href="/update-data">Update Data</Link>
+                  <Link href="/exoplanet">Exoplanet</Link>
                 </li>
                 <li className="cursor-pointer hover:text-blue-400">
-                  <Link href="/login">Login</Link>
+                  <Link href="/signup">Login</Link>
                 </li>
               </ul>
             </div>

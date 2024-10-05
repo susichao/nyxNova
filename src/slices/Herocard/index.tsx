@@ -74,7 +74,7 @@ const ServiceData = [
 const HeroCard: React.FC = () => {
   return (
     <Bounded>
-      <div className="py-20">
+      <div className="py-20 px-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-center">
             {ServiceData.map((data, index) => (
