@@ -49,6 +49,9 @@ const Footer = () => {
                 <li className="cursor-pointer hover:text-blue-400">
                   <Link href="/signup">Login</Link>
                 </li>
+                <li className="cursor-pointer hover:text-blue-400">
+                  <Link href="/chatbot">Ask Me Anything</Link>
+                </li>
               </ul>
             </div>
             <div className="py-8 pl-20">
