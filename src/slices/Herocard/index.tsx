@@ -52,7 +52,7 @@ const Description = styled.p`
 
 const ServiceData = [
   {
-    title: "Universal Rover Navigation",
+    title: "Universal Navigation",
     content: "300-1500km",
     description: "Plot safe paths across alien terrains, adapting to various planetary conditions",
     icon: <FaMapMarkerAlt />,
