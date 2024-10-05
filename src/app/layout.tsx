@@ -46,7 +46,7 @@ export default function RootLayout({
       <body>
         {/* Video Background */}
         <div className="video-background">
-          <video autoPlay muted loop className="background-video">
+          <video autoPlay muted loop className="background-video flex flex-auto">
             <source src="/images/224142_medium.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
