@@ -110,8 +110,8 @@ const Upload = ({ slice }: UploadProps): JSX.Element => {
       {/* Button Section */}
       <div className="w-full text-center mt-12 relative z-10">
         <Link
-          className="px-8 py-4 text-2xl font-bold font-display text-slate-900  shadow-lg animate-pulse-glow transition-all duration-300 ease-in-out transform hover:scale-105"
-          href={"https://nyxnova-simulator.vercel.app/"}
+          className="px-8 py-4 text-2xl font-bold font-body text-slate-900  shadow-lg animate-pulse-glow transition-all duration-300 ease-in-out transform hover:scale-105"
+          href={"https://nyxnova-exoplanet.vercel.app/"}
         >
           Explore More Exoplanets
         </Link>
