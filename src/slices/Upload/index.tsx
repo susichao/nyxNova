@@ -62,7 +62,7 @@ const Upload = ({ slice }: UploadProps): JSX.Element => {
             Neptune-like Planets
           </h3>
           <p className="mt-4 text-lg md:text-xl font-body font-light">
-            Similar in size to Neptune or Uranus, with a hydrogen and helium-dominated outer atmosphere and rocky cores. Includes mini-Neptunes, which don't exist in our solar system.
+            Similar in size to Neptune or Uranus, with a hydrogen and helium-dominated outer atmosphere and rocky cores. Includes mini-Neptunes, which donot exist in our solar system.
           </p>
         </div>
       </div>

@@ -12,7 +12,7 @@ const Footer = () => {
           {/* First Column */}
           <div className="py-8 px-4">
             <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3">
-              Let's Grow With Us
+              Lets Grow With Us
             </h1>
             <p className="text-gray-400">
               Get exclusive{" "}
